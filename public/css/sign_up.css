@@ -1,0 +1,38 @@
+.new-account {
+    max-width: 80%;
+    background-color: wheat;
+    color: black;
+    padding: 2%;
+    margin: auto;
+    margin-top: 3rem;
+    text-align: start;
+    
+}
+
+.form-control, .form-select {
+    border: 2px solid black;
+}
+
+.new-account .header {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.required {
+    color: red;
+}
+
+.sign-up-submit {
+    background-color: maroon;
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.4rem 1rem 0.4rem 1rem;
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-align: center;
+    border: 0px solid maroon;
+    box-shadow: 3px 3px black;
+    min-width: 100%;
+}
+

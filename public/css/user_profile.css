@@ -1,0 +1,48 @@
+.profile {
+    background-color: rgb(19, 121, 121);
+    color: black;
+}
+
+.navigation-pills-tab {
+    background-color: black;
+    min-height: 70vh;
+}
+
+@media (max-width: 712px) {
+    .navigation-pills-tab .nav-link { 
+        color: white;
+        font-size: 1rem;
+        white-space: nowrap;
+        text-align: start;
+    }
+}
+
+@media (min-width: 713px) {
+    .navigation-pills-tab .nav-link { 
+        color: white;
+        font-size: 1.5rem;
+        white-space: nowrap;
+        text-align: start;
+    }
+}
+
+.navigation-pills-tab .nav-link:hover {
+    color: orange;
+}
+
+.nav-pills .nav-link.active{
+    background-color: orange !important;
+    color: black !important;
+}
+
+.navigation-pills-tab .border-spacer {
+    border-bottom: 5px solid white;
+}
+.navigation-pills-tab .logout {
+    text-align: center;
+}
+
+.navigation-pills-tab .logout:hover {
+    background-color: orange !important;
+    color: black !important; 
+}

@@ -1,0 +1,181 @@
+img
+{
+    width: 60%;
+    border: 7px solid black;
+    margin: auto;
+}
+#hero-image .carousel-control-next {
+    margin-right: 5%;
+}
+
+#hero-image .carousel-control-next-icon {
+    background-size: 50%;
+    padding: 50%;
+}
+
+#hero-image .carousel-control-prev {
+    margin-left: 5%;
+
+}
+#hero-image .carousel-control-prev-icon {
+    background-size: 50%;
+    padding: 50%;
+}
+
+
+
+
+.course-carousel .carousel-item.active,
+.course-carousel .carousel-item-start,
+.course-carousel .carousel-item-end {
+    display: flex;
+
+}
+
+#mostPopular .carousel-control-prev {
+    background-color: black;
+    border-radius: 10rem;
+    width: 5%;
+    height: 19%;
+    margin-left: 0;
+    margin-top: 12%;
+}
+
+#mostPopular .carousel-control-next {
+    background-color: black;
+    border-radius: 10rem;
+    width: 5%;
+    height: 19%;
+    margin-right: 0;
+    margin-top: 12%;
+    
+
+}
+
+#recentlyAdded .carousel-control-prev {
+    background-color: black;
+    border-radius: 10rem;
+    width: 5%;
+    height: 19%;
+    margin-left: 0;
+    margin-top: 12%;
+}
+
+#recentlyAdded .carousel-control-next {
+    background-color: black;
+    border-radius: 10rem;
+    width: 5%;
+    height: 19%;
+    margin-right: 0;
+    margin-top: 12%;
+    
+
+}
+
+#coreCourses .carousel-control-prev {
+    background-color: black;
+    border-radius: 10rem;
+    width: 5%;
+    height: 19%;
+    margin-left: 0;
+    margin-top: 12%;
+}
+
+#coreCourses .carousel-control-next {
+    background-color: black;
+    border-radius: 10rem;
+    width: 5%;
+    height: 19%;
+    margin-right: 0;
+    margin-top: 12%;
+    
+
+}
+
+
+
+.container {
+    max-width: 100%;
+    margin: auto;
+    padding: 2% 2% 2% 2%;
+    background-color: rgb(0, 51, 51);
+}
+
+.title {
+    padding: 0.5% 0 0.5% 3%;
+    background-color: black;
+    color: white;
+    margin-top: 3%;
+    margin-bottom: 0;
+}
+
+.container .card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.card {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.add-to-bookbag {
+    background-image: url('../Images/add-bookbag-icon.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 0px solid black;
+    width: 35px;
+    height: 35px;
+    right: 0.5rem;
+    bottom: 0.1rem;
+}
+
+.add-to-bookbag:hover {
+    border: 1px solid #c5c5c5;
+}
+
+.card-footer {
+    background-color: #c5c5c5;
+}
+
+
+
+
+.container-medium {
+    overflow-x: scroll;
+    display: flex;
+    padding: 4% 1% 4% 0%;
+    background-color: rgb(0, 51, 51);
+}
+.container-medium .card {
+    min-width: 20rem;
+    min-height: 30rem;
+    white-space: normal;
+}
+
+.container-medium .card-img-top {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+}
+
+.container-medium::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+
+.container-medium::-webkit-scrollbar-track {
+    background: rgb(243, 243, 240); 
+  }
+   
+.container-medium::-webkit-scrollbar-thumb {
+    background: rgb(44, 44, 44); 
+    width: 1px;
+  }
+  
+.container-medium::-webkit-scrollbar-thumb:hover {
+    background: black; 
+  }
+
+

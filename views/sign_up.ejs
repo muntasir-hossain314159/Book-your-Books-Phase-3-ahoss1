@@ -1,0 +1,55 @@
+<form action="/sign_up" class="row g-3 new-account justify-content-center" method="post">
+    <h2 class="header">
+        Create a New Account
+    </h2>
+    <div class="col-md-4">
+        <label for="inputFirstName" class="form-label">First Name</label> 
+        <span class="required">*</span>
+        <input type="text" name="firstName" class="form-control" id="inputFirstName" placeholder="Enter your first name" required>
+    </div>
+    <div class="col-md-4">
+        <label for="inputLastName" class="form-label">Last Name</label> 
+        <span class="required">*</span>
+        <input type="text" name="lastName" class="form-control" id="inputLastName" placeholder="Enter your last name">
+    </div>
+    <div class="col-md-4">
+        <label for="inputEmail" class="form-label">Email</label> 
+        <span class="required">*</span>
+        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="name@example.com" required>
+    </div>
+    <div class="col-md-4">
+        <label for="inputPassword" class="form-label">Password</label>
+        <span class="required">*</span>
+        <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Enter your password" required>
+    </div>
+    <div class="col-md-4">
+        <label for="inputReconfirmPassword" class="form-label">Reconfirm Password</label>
+        <span class="required">*</span>
+        <input type="password" name="reconfirmPassword" class="form-control" id="inputReconfirmPassword" placeholder="Enter your password again" required>
+        </div>
+    <div class="col-md-4">
+        <label for="inputPhone" class="form-label">Phone Number</label>
+        <input type="tel" name="phoneNumber" class="form-control" id="inputPhone" placeholder="XXX-XXX-XXXX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+    </div>
+    <div class="col-12">
+        <label for="inputUniversity" class="form-label">University</label>
+        <input class="form-control" name="university" list="universityList" id="inputUniversity" placeholder="Search your university">
+        <datalist id="universityList">
+            <option value="University of New Haven">
+            <option value="Yale University">
+            <option value="Harvard University">
+        </datalist>
+    </div>   
+    <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" name="termsConditions" type="checkbox" id="gridCheck" required>
+            <label class="form-check-label" for="gridCheck">
+                I agree to the Book your Books Terms of Service and Privacy Policy <span class="required">*</span>
+            </label>
+            
+        </div>
+    </div>
+    <div class="col-4">
+        <input type="submit" value="Sign Up" class="sign-up-submit">
+    </div>
+</form>    
