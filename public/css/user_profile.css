@@ -46,3 +46,56 @@
     background-color: orange !important;
     color: black !important; 
 }
+
+/*My Sellings*/
+
+.sell-book {
+    max-width: 80%;
+    background-color: wheat;
+    color: black;
+    padding: 2%;
+    margin: auto;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: start;
+}
+
+.form-control, .form-select {
+    border: 2px solid black;
+}
+
+.sell-book .header {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.required {
+    color: red;
+}
+
+/* .container.submit-center {
+    background-color: transparent !important;
+} */
+
+.sell-book-submit {
+    background-color: maroon;
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.4rem 1rem 0.4rem 1rem;
+    font-size: 1.5rem;
+    font-weight: normal; 
+    border: 0px solid maroon;
+    box-shadow: 3px 3px black;
+}
+
+@media (max-width:650px)
+{
+    .sell-book-submit {
+        font-size: 1rem;
+        margin-bottom: 2%;
+    }
+}
+
+
+
