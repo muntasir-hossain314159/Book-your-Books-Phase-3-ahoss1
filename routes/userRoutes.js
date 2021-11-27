@@ -13,7 +13,7 @@ const router = require("express").Router(),
     upload = multer({ storage: storage });
 
 router.get("/:id", userController.showUserProfile);
-router.post("/:id/purchases", upload.single('image'), userController.sellBook);
 router.get("/:id/sellings", userController.purchaseBook);
+router.post("/:id/purchases", upload.single('image'), userController.sellBook);
 
 module.exports = router;

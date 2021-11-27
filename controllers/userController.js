@@ -26,7 +26,7 @@ module.exports = {
                  contentType: 'image/png'
             }
         },
-        currentUser = req.user;
+        currentUser = res.locals.currentUser;
 
         if (req.skip) return next();
 

@@ -2,109 +2,49 @@ body {
     background-color: #026363;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
 .website-header {
     background-color: black;
 }
 
-.course-list {
-    background-color: #1b1b1b;
-    border-top: 7px orange solid;
-    color: orange;
-    display: flex;
-}
-
-@media (min-width:576px) {
-    .course-list {
-        overflow-x: scroll;
-    }
-    .course-list::-webkit-scrollbar {
-        width: 20px;
-      }
-      
-    
-    .course-list::-webkit-scrollbar-track {
-        background: rgb(243, 243, 240); 
-      }
-       
-    .course-list::-webkit-scrollbar-thumb {
-        background: rgb(44, 44, 44); 
-        width: 1px;
-      }
-      
-    .course-list::-webkit-scrollbar-thumb:hover {
-        background: black; 
-      }
-}
-
-.dropdown-course {
-    transform: translateX(0px);
-}
-.dropdown-item {
-    color: white;
-}
-.course-left {
-    background-position: center;
-    background-image: url('../Images/left-arrow.png'); 
-    background-size: 50%;
-    background-color: #1b1b1b;
-    background-repeat: no-repeat; 
-    border: none;
-    padding: 1.5%;
-    z-index: 1;
-}
-
-.course-right {
-    background-position: center;
-    background-image: url('../Images/right-arrow.png'); 
-    background-size: 50%;
-    background-color: #1b1b1b;
-    background-repeat: no-repeat; 
-    border: none;
-    padding: 1.5%;
-    z-index: 1;
-}
-
 .navbar-toggler:focus,
-.navbar-toggler:active,
-.navbar-toggler-icon:focus {
+.navbar-toggler:active {
     outline: none;
     box-shadow: none;
 }
 
-.dropdown-icon .navbar-toggler-icon {
-    background-image: url('../Images/dropdown-icon.png');
+.hamburger-icon {
+    background-color: orange;
+}
+
+.hamburger-icon .navbar-toggler-icon{
+    background-image: url('../images/hamburger-icon.png');
     background-size: contain;
-}
-
-.dropdown-icon .navbar-toggler-icon:hover {
-    border: 1px solid #1b1b1b;
-}
-
-.nav-item {
-    white-space: nowrap;
 }
 
 #collapsibleNavbar {
     flex-grow: 0;
 }
 
+.toggle-item {
+    text-decoration: none;
+    color: white;
+}
+
+.toggle-item:hover {
+    color: orange;
+}
+
+.nav-item {
+    white-space: nowrap;
+    font-size: 130%;
+    font-weight: 600;
+}
+
 .navbar-brand{
     color: #ffa500;
     font-size: 210%;
     font-weight: bold;
-}
-
-.hamburger-icon {
-    background-color: orange;
-}
-.hamburger-icon .navbar-toggler-icon{
-    background-image: url('../Images/hamburger-icon.png');
-    background-size: contain;
-}
-
-.nav-item {
-    font-size: 130%;
-    font-weight: 600;
 }
 
 .home {
@@ -118,8 +58,7 @@ body {
 }
 
 .search {
-    
-    background-image: url('../Images/search-icon.png');
+    background-image: url('../images/search-icon.png');
     background-color: transparent;
     border: 0px solid black;
     background-repeat: no-repeat;
@@ -132,9 +71,8 @@ body {
     border: 2px solid rgb(0, 0, 0);
 } 
 
-
 .bookbag {
-    background-image: url('../Images/bookbag-icon.png');
+    background-image: url('../images/bookbag-icon.png');
     background-repeat: no-repeat;
     background-size: contain;
     border: 0px solid black;
@@ -143,7 +81,7 @@ body {
 }
 
 .bookbag:hover {
-    border: 2px solid rgba(0, 0, 0, 0.616);
+    border: 2px solid rgba(0, 0, 0, 0.616) !important;
 }
 
 .sign-in {
@@ -163,13 +101,64 @@ body {
     background-color: orange;
 }
 
-.toggle-item {
-    text-decoration: none;
-    color: white;
+.avatar {
+    background-image: url('../images/avatar-icon.png');
+    background-color: transparent;
+    border: 0px solid black;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 35px;
+    height: 35px;
 }
 
-.toggle-item:hover {
+.avatar:hover {
+    border: 2px solid rgb(0, 0, 0);
+} 
+
+.course-list {
+    background-color: #1b1b1b;
+    border-top: 7px orange solid;
+    display: flex;
+}
+
+@media (min-width:576px) {
+    .course-list {
+        overflow-x: scroll;
+    }
+
+    .course-list::-webkit-scrollbar {
+        height: 1em;
+    }
+    
+    .course-list::-webkit-scrollbar-track {
+        background: white; 
+    }
+       
+    .course-list::-webkit-scrollbar-thumb {
+        background: rgb(44, 44, 44); 
+        /* border-radius: 6px; */
+        /* border-bottom: 2px solid black;  */
+    }
+    .course-list::-webkit-scrollbar-thumb:hover {
+        background: black; 
+    }
+}
+
+.dropdown-icon .navbar-toggler-icon {
+    background-image: url('../Images/dropdown-icon.png');
+    background-size: contain;
+}
+
+.dropdown-icon .navbar-toggler-icon:hover {
+    border: 1px solid #1b1b1b;
+}
+
+.course-header {
     color: orange;
+}
+
+.dropdown-item {
+    color: white;
 }
 
 .grid-container-footer {
@@ -207,8 +196,17 @@ body {
     
 }
 
-.grid-container-footer-1, .grid-container-footer-2, .grid-container-footer-3, .grid-container-footer-4, .grid-container-footer-5, .grid-container-footer-6 {
+.information a {
+    text-decoration: none;
+    color: orange;
+}
 
+.information a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.grid-container-footer-1, .grid-container-footer-2, .grid-container-footer-3, .grid-container-footer-4, .grid-container-footer-5, .grid-container-footer-6 {
     padding: 2rem; 
 }
 
@@ -261,30 +259,6 @@ body {
   
 }  
 
-.information a {
-    text-decoration: none;
-    color: orange;
-}
-
-.information a:hover {
-    text-decoration: none;
-    color: white;
-}
-
-.avatar {
-    background-image: url('../Images/avatar-icon.png');
-    background-color: transparent;
-    border: 0px solid black;
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 35px;
-    height: 35px;
-}
-
-.avatar:hover {
-    border: 2px solid rgb(0, 0, 0);
-} 
-
 .flash {
     background: rgb(3, 53, 53);
     color: white;
@@ -295,3 +269,26 @@ body {
     font-size: larger;
   }
   
+/* 
+.course-left {
+    background-position: center;
+    background-image: url('../Images/left-arrow.png'); 
+    background-size: 50%;
+    background-color: #1b1b1b;
+    background-repeat: no-repeat; 
+    border: none;
+    padding: 1.5%;
+    z-index: 1;
+}
+
+.course-right {
+    background-position: center;
+    background-image: url('../Images/right-arrow.png'); 
+    background-size: 50%;
+    background-color: #1b1b1b;
+    background-repeat: no-repeat; 
+    border: none;
+    padding: 1.5%;
+    z-index: 1;
+} 
+*/

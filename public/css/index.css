@@ -166,7 +166,7 @@ img
   
 
 .container-medium::-webkit-scrollbar-track {
-    background: rgb(243, 243, 240); 
+    background: white; 
   }
    
 .container-medium::-webkit-scrollbar-thumb {

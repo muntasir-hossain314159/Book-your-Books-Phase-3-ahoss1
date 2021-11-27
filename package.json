@@ -27,6 +27,7 @@
     "flash": "^1.1.0",
     "fs": "^0.0.1-security",
     "http-status-codes": "^2.1.4",
+    "jquery": "^3.6.0",
     "mongoose": "^6.0.12",
     "multer": "^1.4.3",
     "passport": "^0.5.0",

@@ -565,9 +565,9 @@
                       <div class="card-body">
                         <h5 class="card-title"><%= courseBookData[i].bookName %></h5>
                       </div>
-                      <div class="card-footer position-relative">
+                      <div class="card-footer position-relative">  
                           <span>$<%= courseBookData[i].cost %></span>
-                          <button class="add-to-bookbag position-absolute"></button>
+                          <button class="add-to-bookbag position-absolute" onClick="AddToBookBag('<%= courseBookData[i]._id %>')"></button>
                       </div>
                   </div>
                 </div>

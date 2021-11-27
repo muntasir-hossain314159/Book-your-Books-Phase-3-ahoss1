@@ -6,8 +6,10 @@ const router = require("express").Router(),
     searchRoutes = require("./searchRoutes"),
     signInRoutes = require("./signInRoutes"),
     signUpRoutes = require("./signUpRoutes"),
-    userRoutes = require("./userRoutes");
+    userRoutes = require("./userRoutes"),
+    apiRoutes = require("./apiRoutes");
 
+router.use("/api", apiRoutes);
 router.use("/search", searchRoutes);
 router.use("/sign_in", signInRoutes);
 router.use("/sign_up", signUpRoutes);
