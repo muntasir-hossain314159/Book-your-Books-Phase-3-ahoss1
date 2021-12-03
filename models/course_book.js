@@ -29,7 +29,12 @@ let courseBookSchema = new Schema(
         image: {
             data: Buffer,
             contentType: String
-        }
+        },
+        status: {type: String, default: "pending"}, 
+        sellerID: {type: Schema.Types.ObjectId, ref: "User"},
+        buyerID: {type: Schema.Types.ObjectId, ref: "User"},
+        potentialBuyersList: [{type: Schema.Types.ObjectId, ref: "User"}]
+
     },  
     {
         timestamps: true

@@ -132,12 +132,14 @@ body {
     
     .course-list::-webkit-scrollbar-track {
         background: white; 
+        /* background: black; */
     }
        
     .course-list::-webkit-scrollbar-thumb {
-        background: rgb(44, 44, 44); 
+        background: rgb(44, 44, 44);
+        /* background: orange; */ 
         /* border-radius: 6px; */
-        /* border-bottom: 2px solid black;  */
+        /* border-bottom: 2px solid black; */
     }
     .course-list::-webkit-scrollbar-thumb:hover {
         background: black; 

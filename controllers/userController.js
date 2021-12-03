@@ -1,8 +1,10 @@
 "use strict";
 
 const courseBook = require("../models/course_book"),
+    user = require("../models/user"),
     fs = require('fs'),
-    path = require('path');
+    path = require('path'),
+    httpStatus = require("http-status-codes");
 
 module.exports = {
     showUserProfile: (req, res, next) => {
@@ -11,11 +13,36 @@ module.exports = {
         {
             res.render("user/user_profile");
         }
-        next();
+        return next();
+    },
+
+    showPurchases: (req, res, next) => {
+
+    },
+
+    showSellings: (req, res, next) => {
+        let currentUser = req.user,
+            courseBookSold = [];
+
+            // console.log(currentUser);
+
+        courseBook.find({ sellerID: currentUser._id, status: 'sold' }, function (err, courseBooks) {
+            if (err) return next(err);
+            
+            courseBookSold = courseBooks;
+            });
+
+        courseBook.find({ sellerID: currentUser._id, status: 'pending' }, {image: 0}, function (err, courseBookPending) {
+            if (err) return next(err);
+            
+            // console.log(courseBookPending[0]);
+            res.render("user/user_profile", {courseBookPending : courseBookPending, courseBookSold : courseBookSold});
+          });
     },
 
     sellBook: (req, res, next) => {
-        let courseBookObject = {
+        let currentUser = req.user,
+        courseBookObject = {
             bookName: req.body.bookName,
             courseNumber: req.body.courseNumber,
             courseName: req.body.courseName,
@@ -24,20 +51,35 @@ module.exports = {
             image: {
                  data: fs.readFileSync(path.join('./public/images/courses/uploads/' + req.file.filename)),
                  contentType: 'image/png'
-            }
-        },
-        currentUser = res.locals.currentUser;
-
+            },
+            sellerID: currentUser._id
+        };
+       
         if (req.skip) return next();
 
         courseBook.create(courseBookObject, (err, courseBookDocument) => {
             if (err) {
                 req.flash('error', `Failed to upload your book because: ${error.message}.`);
-                console.log("Error");
+                console.log("Error")
                 res.redirect(`/user/${currentUser._id}`);
             }
             else {
-                courseBookDocument.save();
+                if(currentUser) {
+                    //console.log(currentUser._id);
+                    user.findByIdAndUpdate(currentUser._id, {
+                        $addToSet: {
+                            courseBooksSell: courseBookDocument._id
+                        }
+                      }, (err, docs) => {
+                          if(err)
+                          {
+                              console.log("Error in Updating courseBooksSell Array");
+                          }
+                          else {
+                              console.log("Successfully Updated");
+                          }
+                      });
+                }
                 req.flash('success','Congratulations! You uploaded your book successfully');
                 console.log("Success");
                 res.redirect("/");
@@ -45,6 +87,22 @@ module.exports = {
         });
     },
 
-    purchaseBook: (req, res, next) => {
+    userList: (req, res, next) => {
+        user.find()
+        .then(users => {
+          res.locals.users = users;
+          next();
+        })
+        .catch(error => {
+          console.log(`Error fetching users: ${error.message}`);
+          next(error);
+        });
+    },
+
+    respondJSON: (req, res) => {
+        res.json({
+          status: httpStatus.StatusCodes.OK,
+          data: res.locals.users
+        });
     }
 };

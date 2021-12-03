@@ -13,9 +13,134 @@
         <div class="tab-content" id="v-pills-tabContent">
           <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum quidem, sapiente est cumque voluptates ipsam totam vitae enim libero aut cum dignissimos quaerat quam qui? Non harum enim excepturi eos?</div>
           <div class="tab-pane fade" id="v-pills-purchases" role="tabpanel" aria-labelledby="v-pills-purchases-tab">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, debitis laboriosam facilis amet quos consequuntur distinctio odit tempora possimus quis nostrum doloremque vel! Alias esse beatae quos! Corrupti expedita architecto perferendis omnis unde! Quisquam fugiat tempore recusandae soluta tenetur architecto facere mollitia vel aut delectus sed voluptates magni tempora nihil consequatur modi ipsum, totam eligendi, provident animi explicabo ad quas velit cum. Quis molestias ratione dignissimos laborum consequatur. Sequi, fuga obcaecati! Animi optio placeat nam excepturi accusantium nobis distinctio, deserunt labore repudiandae ad corporis tempora, illo ab enim aliquam deleniti sit? Repellat soluta deleniti quia corporis laborum sequi esse earum?</div>  
-          <div class="tab-pane fade" id="v-pills-sellings" role="tabpanel" aria-labelledby="v-pills-sellings-tab"></div>
+          
+          <div class="tab-pane fade" id="v-pills-sellings" role="tabpanel" aria-labelledby="v-pills-sellings-tab">
+            <h2>Sellings</h2>
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th>Book Name</th>
+                        <th>Course Number</th>
+                        <th>Course Name</th>
+                        <th>Instructor/Professor</th>
+                        <th>Cost</th>
+                        <th>Buyer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% courseBookPending.forEach(courseBook => { %>
+                    <tr>
+                        <td>
+                            <%= courseBook.bookName %>
+                        </td>
+                        <td>
+                            <%= courseBook.courseNumber %>
+                        </td>
+                        <td>
+                            <%= courseBook.courseName %>
+                        </td>
+                        <td>
+                            <%= courseBook.instructor %>
+                        </td>
+                        <td>
+                            <%= courseBook.cost %>
+                        </td>
+                        <td>
+                            <button id="modal-button" type="button" class="button" data-bs-toggle="modal" data-bs-target="#buyerModal" onClick="ShowBuyers('<%= courseBook._id %>', true, false)">Show</button>
+
+                            <div id="buyerModal" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <h4 class="modal-title">Buyer</h4>
+                                    <table class="table table-dark table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Email</th>
+                                                <th>Phone Number</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-body">
+
+                                        </tbody>
+                                        <div class="modal-footer">
+                                            <button type="button" class="button" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+
+
+            <h2>Sold</h2>
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th>Book Name</th>
+                        <th>Course Number</th>
+                        <th>Course Name</th>
+                        <th>Instructor/Professor</th>
+                        <th>Cost</th>
+                        <th>Buyer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% courseBookSold.forEach(courseBook => { %>
+                    <tr>
+                        <td>
+                            <%= courseBook.bookName %>
+                        </td>
+                        <td>
+                            <%= courseBook.courseNumber %>
+                        </td>
+                        <td>
+                            <%= courseBook.courseName %>
+                        </td>
+                        <td>
+                            <%= courseBook.courseName %>
+                        </td>
+                        <td>
+                            <%= courseBook.instructor %>
+                        </td>
+                        <td>
+                            <%= courseBook.cost %>
+                        </td>
+                        <td>
+                            <button id="modal-button" type="button" class="button" data-bs-toggle="modal" data-bs-target="#buyerModal" onClick="ShowBuyers('<%= courseBook %>', false, true)">Show</button>
+
+                            <div id="buyerModal" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <h4 class="modal-title">Buyer</h4>
+                                    <table class="table table-dark table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Email</th>
+                                                <th>Phone Number</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-body">
+
+                                        </tbody>
+                                    <div class="modal-footer">
+                                        <button type="button" class="button" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+          </div>         
+
           <div class="tab-pane fade" id="v-pills-sellbook" role="tabpanel" aria-labelledby="v-pills-sellbook-tab">
-            <form action="<%=`/user/${currentUser._id}/purchases`%>" enctype="multipart/form-data" class="row g-3 sell-book justify-content-center" method="post">
+            <form action="<%=`/user/${currentUser._id}/sellbook`%>" enctype="multipart/form-data" class="row g-3 sell-book justify-content-center" method="post">
                 <h2 class="header">
                     Sell My Book
                 </h2>

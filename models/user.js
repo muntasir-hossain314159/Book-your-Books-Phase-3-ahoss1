@@ -35,13 +35,9 @@ let userSchema = new Schema(
         termsConditions: {
             type: String
         },
-        courseBooksSell: {
-            sellBooks: [{ type: Schema.Types.ObjectId, ref: "Course Book" }]
-
-        },
-        courseBooksPurchase: {
-            purchaseBooks: [{ type: Schema.Types.ObjectId, ref: "Course Book" }]
-        }
+        courseBooksSell: [{ type: Schema.Types.ObjectId, ref: "Course_Book" }],
+        courseBooksPurchase: [{ type: Schema.Types.ObjectId, ref: "Course_Book" }],
+        potentialCourseBooksList: [{ type: Schema.Types.ObjectId, ref: "Course_Book" }]
     },  
     {
         timestamps: true
