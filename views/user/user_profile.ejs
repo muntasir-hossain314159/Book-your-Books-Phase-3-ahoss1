@@ -1,4 +1,72 @@
 
+    <div class="table-responsive">
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>Book Name</th>
+                    <th>Course Number</th>
+                    <th>Course Name</th>
+                    <th>Instructor/Professor</th>
+                    <th>Cost</th>
+                    <th>Buyer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% courseBookPending.forEach(courseBook => { %>
+                <tr>
+                    <td>
+                        <%= courseBook.bookName %>
+                    </td>
+                    <td>
+                        <%= courseBook.courseNumber %>
+                    </td>
+                    <td>
+                        <%= courseBook.courseName %>
+                    </td>
+                    <td>
+                        <%= courseBook.instructor %>
+                    </td>
+                    <td>
+                        $<%= courseBook.cost %>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#buyerModalSelling" onClick="ShowBuyers('<%= courseBook._id %>', true, false)">Show</button>
+
+                        <div id="buyerModalSelling" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2 class="modal-title">Buyer</h2>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-dark table-hover table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Email</th>
+                                                    <th>Phone Number</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table-body">
+    
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                    </div>       
+                                </div>     
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+    
+    
     <div class="d-flex align-items-stretch profile">
         <div class="nav d-flex flex-column nav-pills me-3 navigation-pills-tab" id="v-pills-tab" role="tablist" aria-orientation="vertical">
             <button class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="true">Profile</button>
@@ -16,66 +84,7 @@
           
           <div class="tab-pane fade" id="v-pills-sellings" role="tabpanel" aria-labelledby="v-pills-sellings-tab">
             <h2>Sellings</h2>
-            <table class="table table-dark table-hover">
-                <thead>
-                    <tr>
-                        <th>Book Name</th>
-                        <th>Course Number</th>
-                        <th>Course Name</th>
-                        <th>Instructor/Professor</th>
-                        <th>Cost</th>
-                        <th>Buyer</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% courseBookPending.forEach(courseBook => { %>
-                    <tr>
-                        <td>
-                            <%= courseBook.bookName %>
-                        </td>
-                        <td>
-                            <%= courseBook.courseNumber %>
-                        </td>
-                        <td>
-                            <%= courseBook.courseName %>
-                        </td>
-                        <td>
-                            <%= courseBook.instructor %>
-                        </td>
-                        <td>
-                            <%= courseBook.cost %>
-                        </td>
-                        <td>
-                            <button id="modal-button" type="button" class="button" data-bs-toggle="modal" data-bs-target="#buyerModal" onClick="ShowBuyers('<%= courseBook._id %>', true, false)">Show</button>
-
-                            <div id="buyerModal" class="modal fade" role="dialog">
-                                <div class="modal-dialog">
-                                    <h4 class="modal-title">Buyer</h4>
-                                    <table class="table table-dark table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Email</th>
-                                                <th>Phone Number</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="table-body">
-
-                                        </tbody>
-                                        <div class="modal-footer">
-                                            <button type="button" class="button" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </table>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <% }); %>
-                </tbody>
-            </table>
-
-
+            
             <h2>Sold</h2>
             <table class="table table-dark table-hover">
                 <thead>
@@ -107,29 +116,36 @@
                             <%= courseBook.instructor %>
                         </td>
                         <td>
-                            <%= courseBook.cost %>
+                            $<%= courseBook.cost %>
                         </td>
                         <td>
-                            <button id="modal-button" type="button" class="button" data-bs-toggle="modal" data-bs-target="#buyerModal" onClick="ShowBuyers('<%= courseBook %>', false, true)">Show</button>
+                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#buyerModalSold" onClick="ShowBuyers('<%= courseBook._id %>', false, true)">Show</button>
 
-                            <div id="buyerModal" class="modal fade" role="dialog">
+                            <div id="buyerModalSold" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
-                                    <h4 class="modal-title">Buyer</h4>
-                                    <table class="table table-dark table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Email</th>
-                                                <th>Phone Number</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="table-body">
-
-                                        </tbody>
-                                    <div class="modal-footer">
-                                        <button type="button" class="button" data-dismiss="modal">Close</button>
-                                    </div>
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h2 class="modal-title">Buyer</h2>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table table-dark table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>First Name</th>
+                                                        <th>Last Name</th>
+                                                        <th>Email</th>
+                                                        <th>Phone Number</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="table-body">
+        
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                        </div>       
+                                    </div>     
                                 </div>
                             </div>
                         </td>

@@ -97,5 +97,16 @@
     }
 }
 
+.modal-dialog {
+    background-color: orange;
+    color: black;
+    padding: 1.5%; 
+    min-width: 100%;
+}
+
+.modal-title {
+    font-weight: bold;
+    font-size: 3rem;
+}
 
 
