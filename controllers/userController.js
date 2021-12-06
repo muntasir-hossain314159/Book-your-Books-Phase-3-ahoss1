@@ -25,19 +25,25 @@ module.exports = {
             courseBookSold = [];
 
             // console.log(currentUser);
+        if(currentUser)
+        {
+            courseBook.find({ sellerID: currentUser._id, status: 'sold' }, function (err, courseBooks) {
+                if (err) return next(err);
+                
+                courseBookSold = courseBooks;
+                });
+    
+            courseBook.find({ sellerID: currentUser._id, status: 'pending' }, {image: 0}, function (err, courseBookPending) {
+                if (err) return next(err);
+                
+                // console.log(courseBookPending[0]);
+                res.render("user/user_profile", {courseBookPending : courseBookPending, courseBookSold : courseBookSold});
+              });
+        }
+        else {
+            next();
+        }
 
-        courseBook.find({ sellerID: currentUser._id, status: 'sold' }, function (err, courseBooks) {
-            if (err) return next(err);
-            
-            courseBookSold = courseBooks;
-            });
-
-        courseBook.find({ sellerID: currentUser._id, status: 'pending' }, {image: 0}, function (err, courseBookPending) {
-            if (err) return next(err);
-            
-            // console.log(courseBookPending[0]);
-            res.render("user/user_profile", {courseBookPending : courseBookPending, courseBookSold : courseBookSold});
-          });
     },
 
     sellBook: (req, res, next) => {
@@ -46,8 +52,9 @@ module.exports = {
             bookName: req.body.bookName,
             courseNumber: req.body.courseNumber,
             courseName: req.body.courseName,
-            cost: req.body.cost,
             instructor: req.body.instructor,
+            university: req.body.university,
+            cost: req.body.cost,
             image: {
                  data: fs.readFileSync(path.join('./public/images/courses/uploads/' + req.file.filename)),
                  contentType: 'image/png'

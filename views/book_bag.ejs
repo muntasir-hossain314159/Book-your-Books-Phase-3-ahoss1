@@ -1,0 +1,41 @@
+<div class="container">
+  <% if (courseBooks.length == 0) { %>
+    <h1 style="font-weight: bold; font-size: 3rem; color: black; background-color: orange; text-align: center; margin-top: 1%; padding: 1%">Book Bag is empty!</h1>
+  <% } else { %>
+    <div class="row" style="background-color: white; padding: 1%;"> 
+      <div class="col-12">
+        <h1 style="font-weight: bold; font-size: 3rem; color: black;">Book Bag</h1>
+      </div>
+    </div>
+  <% console.log("success in book bag"); courseBooks.forEach(courseBook => { %>
+    <div class="row mt-5">
+      <div class="col-2">
+          <div class="card">
+            <div class="card-body">
+              <img src="data:image/<%=courseBook.image.contentType%>;base64,<%=courseBook.image.data.toString('base64')%>" class="card-img-top" alt="...">
+              <h5 class="card-title"><%= courseBook.bookName %></h5>
+            </div>
+            <div class="card-footer position-relative">  
+                <span>$<%= courseBook.cost %></span>
+            </div>
+          </div>
+      </div>
+      <div class="col-10 d-flex flex-column" style="color: orange; background-color: black; padding: 2%;">
+        <h2>Course Number: <%= courseBook.courseNumber %></h2>
+        <h2>Course Name: <%= courseBook.courseName %></h2>
+        <h2>Instructor/Professor: <%= courseBook.instructor %></h2>
+        <h2>University: <%= courseBook.university %></h2>  
+        <button class="btn btn-light btn-lg mt-auto" style="align-self: flex-start;">Delete</button>
+      </div>
+    </div>
+  <% }) %>
+    <div class="row mt-5 justify-content-center"> 
+      <div class="col-4">
+        <input type="submit" value="Submit Bid" class="sign-up-submit">
+      </div>
+    </div>  
+  <% } %>
+</div>
+
+
+

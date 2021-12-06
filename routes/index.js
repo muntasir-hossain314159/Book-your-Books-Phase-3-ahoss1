@@ -7,9 +7,11 @@ const router = require("express").Router(),
     signInRoutes = require("./signInRoutes"),
     signUpRoutes = require("./signUpRoutes"),
     userRoutes = require("./userRoutes"),
-    apiRoutes = require("./apiRoutes");
+    apiRoutes = require("./apiRoutes"),
+    bookBagRoutes = require("./bookBagRoutes");
 
 router.use("/api", apiRoutes);
+router.use("/bookbag", bookBagRoutes);
 router.use("/search", searchRoutes);
 router.use("/sign_in", signInRoutes);
 router.use("/sign_up", signUpRoutes);

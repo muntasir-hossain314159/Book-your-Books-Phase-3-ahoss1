@@ -22,6 +22,10 @@ let courseBookSchema = new Schema(
             required: true
 
         },
+        university: {
+            type: String,
+            trim: true
+        },
         cost: {
             type: Number,
             min: [0, "Course cannot have a negative cost"]

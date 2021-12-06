@@ -28,25 +28,13 @@ function findIndex(data, ID)
 
 function ShowBookBag()
 {
-    //show all the books and then when you click submit add to mongoose scheme
-    $.get(`/api/courses`, (results = {}) => {
-        let data = results.data;
-        
-        if (!data) return;
-        else if (courseBookArray.length != 0)
-        {
-            courseBookArray.forEach(courseBookID => {
-                let index = findIndex(data, courseBookID);
-                let courseBookItem = data[index];
-                alert(courseBookItem.bookName);
-            });
-        }
-        else 
-        {
-            alert("No books to show!");
-        }
-    });
+    $.get('/api/bookbag', {'courseBookArray[]': courseBookArray}, (data, status, jqXHR) => {
+        console.log("successful api");
+    }).done(() => {
+        window.location.href = "/bookbag";
+   })
 }
+
 
 function ShowBuyers(courseBookID, sellings, sold)
 {
@@ -62,7 +50,7 @@ function ShowBuyers(courseBookID, sellings, sold)
  
         let index = findIndex(data, courseBookID);
         courseBook = data[index];
-        alert(courseBook.bookName);
+        // alert(courseBook.bookName);
     }).then(() => {
         $.get(`/api/users`, (results = {}) => {
             let data = results.data;
