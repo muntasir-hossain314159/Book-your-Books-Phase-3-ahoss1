@@ -1,5 +1,7 @@
 const courseBook = require("../models/course_book"),
+    user = require("../models/user"),
     httpStatus = require("http-status-codes");
+    mongoose = require("mongoose");
     let courseBookItems = [];
 
 module.exports = {
@@ -21,16 +23,14 @@ module.exports = {
           data: res.locals.courses
         });
     },
-    showBookBag: async (req, res, next) => {
+    showBookBag: (req, res, next) => {
         courseBookItems = [];
       
-        index = 0;
-  
         let courseBookArray = req.query.courseBookArray;
   
         console.log(courseBookArray);
 
-        await courseBook.find({ _id: { $in: courseBookArray } }, (err, items) => {
+        courseBook.find({ _id: { $in: courseBookArray } }, (err, items) => {
           if(err)
           {
               console.log("Error in finding course book for Book Bag");
@@ -38,15 +38,63 @@ module.exports = {
           }
           else {
               //console.log(`Successfully showed Book Bag ${items[0]._id}`);
+              //console.log("run");
               courseBookItems = items.slice(0);
-              
               res.end();
-              console.log("run");
+              
           }
-        }).clone();
+        });
     },
 
     bookBag: (req, res) => {
       res.render("book_bag", {courseBooks: courseBookItems});
+    },
+
+    submitBid: (req, res, next) => {
+      let courseBookArrayID = [],
+      buyerID = req.params.id,
+      courseBookArray = courseBookItems.slice(0);
+
+      courseBookArray.forEach(element => {
+          courseBookArrayID.push(mongoose.Types.ObjectId(element._id));
+        });
+
+      console.log(courseBookArrayID);
+
+      user.findByIdAndUpdate(buyerID, {
+        $addToSet : {
+          potentialCourseBooksList: { $each: courseBookArrayID }
+        }
+      }, (err, doc) => {
+        if(err)
+        {
+            console.log("Error in Potential Course Books List");
+            next(err);
+        }
+        else {
+            console.log("Successfully Updated Potential Course Books List");
+        }
+      }).clone().then( () => { 
+          courseBookArrayID.forEach(element => {
+          courseBook.findByIdAndUpdate(element, {
+              $addToSet : {
+                potentialBuyersList: mongoose.Types.ObjectId(buyerID)  
+              }
+            }, (err, doc) => {
+              if(err)
+              {
+                  console.log("Error in Updating potentialBuyersList");
+                  next(err)
+              }
+              else {
+                  console.log("Successfully Updated potentialBuyersList");
+              }
+            }).clone();
+          }) 
+      }).then( () => {
+          req.flash('success', "Your bid has been submitted successfully!");
+          res.end();
+         
+      })
     }
 }

@@ -1,5 +1,14 @@
 let courseBookArray = [];
 
+function findIndex(data, ID)
+{
+    for(let i = 0; i < data.length; i++)
+    {
+        if (data[i]._id == ID) return i;
+    }
+
+}
+
 function AddToBookBag(courseBookID)
 {
     //console.log(courseBookID);
@@ -17,15 +26,6 @@ function AddToBookBag(courseBookID)
     }
 };
 
-function findIndex(data, ID)
-{
-    for(let i = 0; i < data.length; i++)
-    {
-        if (data[i]._id == ID) return i;
-    }
-
-}
-
 function ShowBookBag()
 {
     $.get('/api/bookbag', {'courseBookArray[]': courseBookArray}, (data, status, jqXHR) => {
@@ -33,7 +33,18 @@ function ShowBookBag()
     }).done(() => {
         window.location.href = "/bookbag";
    })
-}
+};
+
+function submitBid(courseBookID)
+{
+    console.log(courseBookArray);
+     $.get(`/bookbag/submit-bid/${courseBookID}`, (data, status, jqXHR) => {
+        console.log("successful api");
+    }).done(() => {
+        window.location.href = "/";
+   })
+};
+
 
 
 function ShowBuyers(courseBookID, sellings, sold)
@@ -59,6 +70,7 @@ function ShowBuyers(courseBookID, sellings, sold)
             
             else if (sellings) {
                 courseBook.potentialBuyersList.forEach(buyerID => {
+                    console.log(buyerID);
                     let sellingIndex = findIndex(data, buyerID),
                         userItem = data[sellingIndex];
     
