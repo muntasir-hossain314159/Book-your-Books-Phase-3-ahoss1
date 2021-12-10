@@ -2,7 +2,8 @@ const courseBook = require("../models/course_book"),
     user = require("../models/user"),
     httpStatus = require("http-status-codes");
     mongoose = require("mongoose");
-    let courseBookItems = [];
+
+let courseBookItems = [];
 
 module.exports = {
     courseList: (req, res, next) => {
@@ -34,7 +35,7 @@ module.exports = {
           if(err)
           {
               console.log("Error in finding course book for Book Bag");
-              next(err);
+              return next(err);
           }
           else {
               //console.log(`Successfully showed Book Bag ${items[0]._id}`);
@@ -50,6 +51,8 @@ module.exports = {
       res.render("book_bag", {courseBooks: courseBookItems});
     },
 
+    //todo call backs and promises
+    //next(err)
     submitBid: (req, res, next) => {
       let courseBookArrayID = [],
       buyerID = req.params.id,
@@ -61,6 +64,7 @@ module.exports = {
 
       console.log(courseBookArrayID);
 
+      //todo user must be logged in
       user.findByIdAndUpdate(buyerID, {
         $addToSet : {
           potentialCourseBooksList: { $each: courseBookArrayID }

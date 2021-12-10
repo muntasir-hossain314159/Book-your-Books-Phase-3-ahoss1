@@ -1,18 +1,59 @@
-     <div class="d-flex align-items-stretch profile">
-        <div class="nav d-flex flex-column nav-pills me-3 navigation-pills-tab" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <button class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="true">Profile</button>
-            <button class="nav-link" id="v-pills-purchases-tab" data-bs-toggle="pill" data-bs-target="#v-pills-purchases" type="button" role="tab" aria-controls="v-pills-purchases" aria-selected="false">My Purchases</button>
-            <button class="nav-link" id="v-pills-sellings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-sellings" type="button" role="tab" aria-controls="v-pills-sellings" aria-selected="false">My Sellings</button>        
-            <button class="nav-link" id="v-pills-sellbook-tab" data-bs-toggle="pill" data-bs-target="#v-pills-sellbook" type="button" role="tab" aria-controls="v-pills-sellbook" aria-selected="false">Sell My Book</button>
-            <button class="nav-link" id="v-pills-starred-tab" data-bs-toggle="pill" data-bs-target="#v-pills-starred" type="button" role="tab" aria-controls="v-pills-starred" aria-selected="false">Starred</button>
-            <button class="nav-link" id="v-pills-searched-tab" data-bs-toggle="pill" data-bs-target="#v-pills-searched" type="button" role="tab" aria-controls="v-pills-searched" aria-selected="false">Recently Searched</button>
+    <div class="d-flex align-items-stretch profile">
+        <div class="nav nav-pills d-flex flex-column me-3 navigation-pills-tab" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab">Profile</a>
+            <a class="nav-link" id="v-pills-purchases-tab" data-bs-toggle="pill" href="#v-pills-purchases" role="tab">My Purchases</a>
+            <a class="nav-link" id="v-pills-sellings-tab" data-bs-toggle="pill" href="#v-pills-sellings" role="tab">My Sellings</a>        
+            <a class="nav-link" id="v-pills-sellbook-tab" data-bs-toggle="pill" href="#v-pills-sellbook" role="tab">Sell My Book</a>
+            <a class="nav-link" id="v-pills-starred-tab" data-bs-toggle="pill" href="#v-pills-starred" role="tab">Starred</a>
+            <a class="nav-link" id="v-pills-searched-tab" data-bs-toggle="pill" href="#v-pills-searched" role="tab">Recently Searched</a>
             <div class="mt-auto border-spacer"></div>
             <a class="nav-link logout" href="/sign_in/logout">Logout</a>
         </div>
         <div class="tab-content me-3" style="overflow-x: hidden; width: 100%;" id="v-pills-tabContent">
           <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum quidem, sapiente est cumque voluptates ipsam totam vitae enim libero aut cum dignissimos quaerat quam qui? Non harum enim excepturi eos?</div>
-          <div class="tab-pane fade" id="v-pills-purchases" role="tabpanel" aria-labelledby="v-pills-purchases-tab">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, debitis laboriosam facilis amet quos consequuntur distinctio odit tempora possimus quis nostrum doloremque vel! Alias esse beatae quos! Corrupti expedita architecto perferendis omnis unde! Quisquam fugiat tempore recusandae soluta tenetur architecto facere mollitia vel aut delectus sed voluptates magni tempora nihil consequatur modi ipsum, totam eligendi, provident animi explicabo ad quas velit cum. Quis molestias ratione dignissimos laborum consequatur. Sequi, fuga obcaecati! Animi optio placeat nam excepturi accusantium nobis distinctio, deserunt labore repudiandae ad corporis tempora, illo ab enim aliquam deleniti sit? Repellat soluta deleniti quia corporis laborum sequi esse earum?</div>  
-          
+          <div class="tab-pane fade" id="v-pills-purchases" role="tabpanel" aria-labelledby="v-pills-purchases-tab">  
+          <h2 class="mt-2">Current Bids</h2>
+            <div class="table-responsive" style="overflow-y: auto; max-height: 250px !important; background-color: rgb(24, 25, 26);">
+                <table class="table table-dark table-hover" style="white-space: nowrap;">
+                    <thead>
+                        <tr>
+                            <th>Book Name</th>
+                            <th>Course Number</th>
+                            <th>Course Name</th>
+                            <th>Instructor/Professor</th>
+                            <th>University</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% potentialCourseBook.forEach(courseBook => { %>
+                            <tr>
+                                <td>
+                                    <%= courseBook.bookName %>
+                                </td>
+                                <td>
+                                    <%= courseBook.courseNumber %>
+                                </td>
+                                <td>
+                                    <%= courseBook.courseName %>
+                                </td>
+                                <td>
+                                    <%= courseBook.instructor %>
+                                </td>
+                                <td>
+                                    <%= courseBook.university %>
+                                </td>
+                                <td>
+                                    $<%= courseBook.cost %>
+                                </td>
+                            </tr>
+                            <% }); %>
+                       
+                    </tbody>
+                </table>
+            </div>
+           </div>
+            
           <div class="tab-pane fade" id="v-pills-sellings" role="tabpanel" aria-labelledby="v-pills-sellings-tab">
             <h2 class="mt-2">Sellings</h2>
             <div class="table-responsive" style="overflow-y: auto; max-height: 250px !important; background-color: rgb(24, 25, 26);">
@@ -56,7 +97,7 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h2 class="modal-title">Buyer</h2>
+                                                <h2 class="modal-title">Interested Buyers</h2>
                                             </div>
                                             <div class="modal-body">
                                                 <table class="table table-dark table-hover">
@@ -66,6 +107,8 @@
                                                             <th>Last Name</th>
                                                             <th>Email</th>
                                                             <th>Phone Number</th>
+                                                            <th>Approve</th>
+                                                            <th>Reject</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody class="table-body">
@@ -216,8 +259,10 @@
                    
             </form> 
           </div>
-          <div class="tab-pane fade" id="v-pills-starred" role="tabpanel" aria-labelledby="v-pills-starred-tab">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, debitis laboriosam facilis amet quos consequuntur distinctio odit tempora possimus quis nostrum doloremque vel! Alias esse beatae quos! Corrupti expedita architecto perferendis omnis unde! Quisquam fugiat tempore recusandae soluta tenetur architecto facere mollitia vel aut delectus sed voluptates magni tempora nihil consequatur modi ipsum, totam eligendi, provident animi explicabo ad quas velit cum. Quis molestias ratione dignissimos laborum consequatur. Sequi, fuga obcaecati! Animi optio placeat nam excepturi accusantium nobis distinctio, deserunt labore repudiandae ad corporis tempora, illo ab enim aliquam deleniti sit? Repellat soluta deleniti quia corporis laborum sequi esse earum?</div>
-          <div class="tab-pane fade" id="v-pills-searched" role="tabpanel" aria-labelledby="v-pills-searched-tab">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium et libero iure consectetur qui aliquam alias, nostrum illo quam, sequi voluptate delectus voluptates praesentium iusto quas quasi tenetur illum numquam reiciendis! Vitae debitis consequuntur eligendi quia similique, quas error itaque vel. Sequi nesciunt laboriosam aperiam laborum, delectus sed omnis sint, et molestias ipsam quibusdam eligendi hic vel sit. Tempore sit saepe eius maiores! Reiciendis at sint ut maiores recusandae ipsum vitae autem cum voluptas, doloribus quae labore ipsa, illo et tempora esse voluptates obcaecati sed culpa. Asperiores dolores culpa sunt earum ipsa quo, voluptas illo aut possimus numquam quos placeat laudantium consectetur tenetur delectus similique alias, neque expedita quaerat necessitatibus. Incidunt mollitia repellendus autem accusantium at distinctio quod sed optio quas delectus, qui aspernatur aut neque ipsam nostrum eligendi tempore doloribus aliquam. Illo sapiente numquam nihil doloremque quisquam enim nam asperiores minus excepturi officiis modi, vero vel libero, nemo tenetur!</div>
+          <div class="tab-pane fade" id="v-pills-starred" role="tabpanel">Starred is working</div>
+          <div class="tab-pane fade" id="v-pills-searched" role="tabpanel">Searched is working</div>
         </div>
     </div>     
+
+
 

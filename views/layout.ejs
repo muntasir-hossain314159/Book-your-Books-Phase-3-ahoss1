@@ -15,6 +15,19 @@
         
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="/js/script.js"></script>
+        <script>
+            $(function(){
+            var hash = window.location.hash;
+            hash && $('.navigation-pills-tab a[href="' + hash + '"]').tab('show');
+
+            $('.nav-pills a').click(function (e) {
+                $(this).tab('show');
+                var scrollmem = $('body').scrollTop() || $('html').scrollTop();
+                window.location.hash = this.hash;
+                $('html,body').scrollTop(scrollmem);
+            });
+            });
+        </script>
     </head>
     <body>  
         <header>
