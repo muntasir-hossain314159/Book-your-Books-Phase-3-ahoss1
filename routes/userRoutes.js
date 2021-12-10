@@ -15,6 +15,8 @@ const router = require("express").Router(),
 router.get("/:id", userController.showUserProfile, userController.showPurchases, userController.showSellings);
 //router.get("/:id#v-pills-purchases", userController.showPurchases);
 //router.get("/:id#v-pills-sellings", userController.showSellings);
+router.get("/approve-buyer/:userID/:courseBookID", userController.approveBuyer);
+//router.get("/:id", userController.rejectBuyer);
 router.post("/:id/sellbook", upload.single('image'), userController.sellBook);
 
 module.exports = router;

@@ -1,5 +1,6 @@
 "use strict";
 
+const mongoose = require("mongoose");
 const courseBook = require("../models/course_book"),
     user = require("../models/user"),
     fs = require('fs'),
@@ -39,7 +40,7 @@ module.exports = {
     showSellings:  (req, res, next) => {
         let currentUser = req.user;
 
-        // console.log(currentUser);
+        //console.log(currentUser._id);
         if(currentUser)
         {
             Promise.all([
@@ -53,6 +54,35 @@ module.exports = {
         else {
             return next();
         }
+    },
+
+    approveBuyer: (req, res, next) => {
+        let approveBuyerID = req.params.userID,
+            approveCourseID = req.params.courseBookID;
+
+        console.log(approveBuyerID);
+        console.log(approveCourseID);
+
+        user.findByIdAndUpdate(approveBuyerID, {
+            $pull: {
+                potentialCourseBooksList: [mongoose.Types.ObjectId(approveCourseID)]
+
+            },
+            $addToSet : {
+                courseBooksPurchase: mongoose.Types.ObjectId(approveCourseID)
+            }
+       
+        }, (err, docs) => {
+            if(err)
+            {
+                console.log("Error in Updating courseBooksPurchase Array");
+                return next(err);
+            }
+            else {
+                console.log("Successfully Updated courseBooksPurchase");
+            }
+        });
+        res.end();
     },
 
     sellBook: (req, res, next) => {

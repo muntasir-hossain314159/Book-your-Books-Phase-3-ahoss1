@@ -39,14 +39,14 @@ function submitBid(courseBookID)
 {
     console.log(courseBookArray);
      $.get(`/bookbag/submit-bid/${courseBookID}`, (data, status, jqXHR) => {
-        console.log("successful api");
+        console.log("successful bid");
     }).done(() => {
         window.location.href = "/";
    })
 };
 
 
-
+//todo callback and promise
 function ShowBuyers(courseBookID, sellings, sold)
 {
     let courseBook;
@@ -88,6 +88,12 @@ function ShowBuyers(courseBookID, sellings, sold)
                         <td>
                             ${userItem.phoneNumber}
                         </td>
+                        <td>
+                            <button class="btn btn-light" onClick="ApproveButton('${userItem._id}', '${courseBook._id}')">Approve</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger">Reject</button>
+                        </td>
                     </tr>`
                     );
                 })
@@ -115,8 +121,19 @@ function ShowBuyers(courseBookID, sellings, sold)
             }
             else 
             {
-                alert("No books to show!");
+                alert("No Buyers to Show!");
             }
         });
     })
+}
+
+function ApproveButton(userID, courseBookID) {
+    console.log(userID);
+    $.get(`/user/approve-buyer/${userID}/${courseBookID}`,(data, status, jqXHR) => {
+        console.log("successful approve buyer");
+    }).done(() => {
+        window.location.href = "/";
+   })
+
+
 }
