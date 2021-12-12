@@ -7,7 +7,8 @@ const courseBook = require("../models/course_book"),
     path = require('path'),
     httpStatus = require("http-status-codes");
 
-let potentialCourseBooksArray = [];
+let potentialCourseBooksArray = [],
+    purchasedCourseBooksArray = [];
 
 module.exports = {
     showUserProfile: (req, res, next) => {
@@ -19,24 +20,38 @@ module.exports = {
         return next();
     },
 
+    //todo courseBook.find({_id: { $in: currentUser.potentialCourseBooksList}}, {image: 0}, (err, potentialCourseBooks)
+  
     showPurchases: (req, res, next) => {
         potentialCourseBooksArray = [];
+        purchasedCourseBooksArray = [];
         let currentUser = req.user;
 
         if(currentUser)
         {
             courseBook.find({potentialBuyersList: { $in: currentUser._id}}, {image: 0}, (err, potentialCourseBooks) => {
                 if(err) {
-                    console.log("Error in finding potential buyers list");
+                    console.log("Error in finding potential course books list");
                     return next(err);
                 }
                 potentialCourseBooksArray = potentialCourseBooks.slice(0);
+            }).clone().then( () => {
+                courseBook.find({_id: { $in: currentUser.courseBooksPurchase}}, {image: 0}, (err, purchasedCourseBooks) => {
+                    if(err) {
+                        console.log("Error in finding purchased course books");
+                        return next(err);
+                    }
+                    purchasedCourseBooksArray = purchasedCourseBooks.slice(0);
+                    return next();
+                })
             })
         }
-        return next()
+        else
+            return next();
     },
 
     //todo catch error after then
+    //courseBook.find( {._id: {$in: currentUser.courseBooksSell}, status: 'pending'} , {image: 0})
     showSellings:  (req, res, next) => {
         let currentUser = req.user;
 
@@ -48,7 +63,7 @@ module.exports = {
                 courseBook.find({ sellerID: currentUser._id, status: 'sold' }, {image: 0}) 
 
             ]).then(([courseBookPending, courseBookSold]) => {
-                res.render("user/user_profile", {courseBookPending : courseBookPending, courseBookSold : courseBookSold, potentialCourseBook: potentialCourseBooksArray});
+                res.render("user/user_profile", {courseBookPending : courseBookPending, courseBookSold : courseBookSold, potentialCourseBook: potentialCourseBooksArray, purchasedCourseBook: purchasedCourseBooksArray});
             })
         }
         else {
@@ -64,14 +79,12 @@ module.exports = {
         console.log(approveCourseID);
 
         user.findByIdAndUpdate(approveBuyerID, {
-            $pull: {
-                potentialCourseBooksList: [mongoose.Types.ObjectId(approveCourseID)]
-
-            },
             $addToSet : {
                 courseBooksPurchase: mongoose.Types.ObjectId(approveCourseID)
+            },
+            $pull: {
+                potentialCourseBooksList: mongoose.Types.ObjectId(approveCourseID)
             }
-       
         }, (err, docs) => {
             if(err)
             {
@@ -81,8 +94,26 @@ module.exports = {
             else {
                 console.log("Successfully Updated courseBooksPurchase");
             }
-        });
-        res.end();
+        }).clone().then( () => {
+            courseBook.findByIdAndUpdate(approveCourseID, {
+                $set: {
+                    potentialBuyersList: []
+                },
+                status: "sold",
+                buyerID: mongoose.Types.ObjectId(approveBuyerID)
+            }, (err, docs) => {
+                if(err)
+                {
+                    console.log("Error in Updating potentialBuyersList Array");
+                    return next(err);
+                }
+                else {
+                    console.log("Successfully Updated potentialBuyersList");
+                }
+            }).clone().then( () => {
+                res.end();
+            })
+        })
     },
 
     sellBook: (req, res, next) => {

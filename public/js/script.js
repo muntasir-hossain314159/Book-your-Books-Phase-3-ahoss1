@@ -131,9 +131,5 @@ function ApproveButton(userID, courseBookID) {
     console.log(userID);
     $.get(`/user/approve-buyer/${userID}/${courseBookID}`,(data, status, jqXHR) => {
         console.log("successful approve buyer");
-    }).done(() => {
-        window.location.href = "/";
-   })
-
-
+    });
 }
