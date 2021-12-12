@@ -13,8 +13,6 @@ const User = require("../models/user"),
     };
 };
 
-
-
 module.exports = {
     showSignUp: (req, res) => {
         res.render("sign_up");
