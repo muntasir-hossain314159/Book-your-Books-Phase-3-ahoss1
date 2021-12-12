@@ -8,7 +8,8 @@ const courseBook = require("../models/course_book"),
     httpStatus = require("http-status-codes");
 
 let potentialCourseBooksArray = [],
-    purchasedCourseBooksArray = [];
+    purchasedCourseBooksArray = [],
+    rejectedBidsArray = [];
 
 module.exports = {
     showUserProfile: (req, res, next) => {
@@ -25,6 +26,7 @@ module.exports = {
     showPurchases: (req, res, next) => {
         potentialCourseBooksArray = [];
         purchasedCourseBooksArray = [];
+        rejectedBidsArray = [];
         let currentUser = req.user;
 
         if(currentUser)
@@ -36,13 +38,29 @@ module.exports = {
                 }
                 potentialCourseBooksArray = potentialCourseBooks.slice(0);
             }).clone().then( () => {
-                courseBook.find({_id: { $in: currentUser.courseBooksPurchase}}, {image: 0}, (err, purchasedCourseBooks) => {
+                courseBook.find({_id: {$in: currentUser.potentialCourseBooksList}}, {image: 0}, (err, courseBooks) => {
                     if(err) {
-                        console.log("Error in finding purchased course books");
+                        console.log("Error in finding potential course books list");
                         return next(err);
                     }
-                    purchasedCourseBooksArray = purchasedCourseBooks.slice(0);
-                    return next();
+                    else {
+                        courseBooks.forEach((rejectedBooks) => {
+                            if(!rejectedBooks.potentialBuyersList.includes(currentUser._id))
+                            {
+                                //console.log(rejectedBooks);
+                                rejectedBidsArray.push(rejectedBooks);
+                            }
+                        })
+                    }
+                }).clone().then( () => {
+                    courseBook.find({_id: { $in: currentUser.courseBooksPurchase}}, {image: 0}, (err, purchasedCourseBooks) => {
+                        if(err) {
+                            console.log("Error in finding purchased course books");
+                            return next(err);
+                        }
+                        purchasedCourseBooksArray = purchasedCourseBooks.slice(0);
+                        return next();
+                    })
                 })
             })
         }
@@ -63,7 +81,7 @@ module.exports = {
                 courseBook.find({ sellerID: currentUser._id, status: 'sold' }, {image: 0}) 
 
             ]).then(([courseBookPending, courseBookSold]) => {
-                res.render("user/user_profile", {courseBookPending : courseBookPending, courseBookSold : courseBookSold, potentialCourseBook: potentialCourseBooksArray, purchasedCourseBook: purchasedCourseBooksArray});
+                res.render("user/user_profile", {courseBookPending : courseBookPending, courseBookSold : courseBookSold, potentialCourseBook: potentialCourseBooksArray, rejectedCourseBook: rejectedBidsArray, purchasedCourseBook: purchasedCourseBooksArray});
             })
         }
         else {
@@ -113,6 +131,33 @@ module.exports = {
             }).clone().then( () => {
                 res.end();
             })
+        })
+    },
+
+    rejectBuyer: (req, res, next) => {
+        let rejectBuyerID = req.params.userID,
+            rejectCourseID = req.params.courseBookID;
+
+        console.log(rejectBuyerID);
+        console.log(rejectCourseID);
+
+      
+        courseBook.findByIdAndUpdate(rejectCourseID, {
+            $pull: {
+                potentialBuyersList: mongoose.Types.ObjectId(rejectBuyerID)
+            }
+        }, (err, docs) => {
+            if(err)
+            {
+                console.log("Error in Updating potentialBuyersList Array Reject");
+                return next(err);
+            }
+            else {
+                //console.log(docs);
+                console.log("Successfully Updated potentialBuyersList Reject");
+            }
+        }).clone().then( () => {
+            res.end();
         })
     },
 

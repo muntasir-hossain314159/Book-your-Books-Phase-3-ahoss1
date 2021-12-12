@@ -52,8 +52,48 @@
                 </table>
             </div>
 
-            <h2 class="mt-2">Purchased</h2>
+            <h2 class="mt-2">Rejected Bids</h2>
             <div class="table-responsive" style="overflow-y: auto; max-height: 250px !important; background-color: rgb(24, 25, 26);">
+                <table class="table table-dark table-hover" style="white-space: nowrap;">
+                    <thead>
+                        <tr>
+                            <th>Book Name</th>
+                            <th>Course Number</th>
+                            <th>Course Name</th>
+                            <th>Instructor/Professor</th>
+                            <th>University</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% rejectedCourseBook.forEach(courseBook => { %>
+                            <tr>
+                                <td>
+                                    <%= courseBook.bookName %>
+                                </td>
+                                <td>
+                                    <%= courseBook.courseNumber %>
+                                </td>
+                                <td>
+                                    <%= courseBook.courseName %>
+                                </td>
+                                <td>
+                                    <%= courseBook.instructor %>
+                                </td>
+                                <td>
+                                    <%= courseBook.university %>
+                                </td>
+                                <td>
+                                    $<%= courseBook.cost %>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="mt-2">Purchased</h2>
+            <div class="table-responsive" style="overflow-y: auto; max-height: 250px !important; background-color: rgb(24, 25, 26); margin-bottom: 2%">
                 <table class="table table-dark table-hover" style="white-space: nowrap;">
                     <thead>
                         <tr>
@@ -169,7 +209,7 @@
             </div>
                         
             <h2 class="mt-2">Sold</h2>
-            <div class="table-responsive" style="overflow-y: auto; max-height: 250px !important; background-color: rgb(24, 25, 26);">
+            <div class="table-responsive" style="overflow-y: auto; max-height: 250px !important; background-color: rgb(24, 25, 26); margin-bottom: 2%">
                 <table class="table table-dark table-hover" style="white-space: nowrap;">
                     <thead>
                         <tr>

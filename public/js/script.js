@@ -92,7 +92,7 @@ function ShowBuyers(courseBookID, sellings, sold)
                             <button class="btn btn-light" onClick="ApproveButton('${userItem._id}', '${courseBook._id}')">Approve</button>
                         </td>
                         <td>
-                            <button class="btn btn-danger">Reject</button>
+                            <button class="btn btn-danger" onClick="RejectButton('${userItem._id}', '${courseBook._id}')">Reject</button>
                         </td>
                     </tr>`
                     );
@@ -131,5 +131,12 @@ function ApproveButton(userID, courseBookID) {
     console.log(userID);
     $.get(`/user/approve-buyer/${userID}/${courseBookID}`,(data, status, jqXHR) => {
         console.log("successful approve buyer");
+    });
+}
+
+function RejectButton(userID, courseBookID) {
+    console.log(userID);
+    $.get(`/user/reject-buyer/${userID}/${courseBookID}`,(data, status, jqXHR) => {
+        console.log("successful reject buyer");
     });
 }
