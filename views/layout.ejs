@@ -50,10 +50,10 @@
                             <li class="nav-item mx-4">
                                 <a class="nav-link search" href="/search"></a>
                             </li>
-                            <li class="nav-item mx-4">
-                                <a class="nav-link bookbag" onClick="ShowBookBag()"></a>
-                            </li>
                             <% if (loggedIn) { %>
+                                <li class="nav-item mx-4">
+                                    <a class="nav-link bookbag" onClick="ShowBookBag()"></a>
+                                </li>
                                 <li class="nav-item mx-3 dropdown">
                                     <a class="nav-link avatar" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     </a>
@@ -66,6 +66,9 @@
                                     </ul>
                                 </li>  
                             <% } else { %>
+                                <li class="nav-item mx-4">
+                                    <a class="nav-link bookbag" onClick="alert('Please sign in to continue!')"></a>
+                                </li>
                                 <li class="nav-item mx-2">
                                     <a class="nav-link sign-in" href="/sign_in">Sign in</a>
                                 </li>

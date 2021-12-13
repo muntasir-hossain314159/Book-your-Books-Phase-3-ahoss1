@@ -1,7 +1,4 @@
-const courseBook = require("../models/course_book"),
-    user = require("../models/user"),
-    httpStatus = require("http-status-codes");
-    mongoose = require("mongoose");
+const courseBook = require("../models/course_book");
 
 function emptyString(str)
 {
@@ -18,31 +15,33 @@ module.exports = {
             instructor = req.query.instructor,
             university = req.query.university;
 
-        console.log(book);
-        console.log(courseNumber);
-        console.log(courseName);
-        console.log(instructor);
-        console.log(university);
+        let regexp = /([$&+,:;=?[\]@#|{}'<>.^*()%!-/])+/;
+        book = book.replace(regexp, "");
 
         let searchFilter = {
-            bookName: book
+            status: 'pending',
+            bookName: new RegExp(book, 'i') 
         }
 
         if(!emptyString(courseNumber))
         {
-            searchFilter.courseNumber = courseNumber;
+            courseNumber = courseNumber.replace(regexp, "");
+            searchFilter.courseNumber = new RegExp(courseNumber, 'i'); 
         }
         if(!emptyString(courseName))
         {
-            searchFilter.courseName = courseName;
+            courseName = courseName.replace(regexp, "");
+            searchFilter.courseName = new RegExp(courseName, 'i');
         }
         if(!emptyString(instructor))
         {
-            searchFilter.instructor = instructor;
+            instructor = instructor.replace(regexp, "");
+            searchFilter.instructor = new RegExp(instructor, 'i');
         }
         if(!emptyString(university))
         {
-            searchFilter.university = university;
+            university = university.replace(regexp, "");
+            searchFilter.university = new RegExp(university, 'i');
         }
 
         console.log(searchFilter);
@@ -56,6 +55,5 @@ module.exports = {
                 res.render("search_result", {searchCourseBook: docs});
             }
         })
-
     }
 }
