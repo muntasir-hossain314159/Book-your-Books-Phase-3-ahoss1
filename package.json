@@ -1,7 +1,7 @@
 {
-  "name": "book-your-books-phase-2-ahoss1",
+  "name": "book-your-books-phase-3-ahoss1",
   "version": "1.0.0",
-  "description": "website application development phase 2",
+  "description": "website application development phase 3",
   "main": "main.js",
   "scripts": {
     "start": "node main.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/muntasir-hossain314159/Book-your-Books-Phase-2-ahoss1.git"
+    "url": "git+https://github.com/muntasir-hossain314159/Book-your-Books-Phase-3-ahoss1.git"
   },
   "author": "Muntasir Hossain",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/muntasir-hossain314159/Book-your-Books-Phase-2-ahoss1/issues"
+    "url": "https://github.com/muntasir-hossain314159/Book-your-Books-Phase-3-ahoss1/issues"
   },
-  "homepage": "https://github.com/muntasir-hossain314159/Book-your-Books-Phase-2-ahoss1#readme",
+  "homepage": "https://github.com/muntasir-hossain314159/Book-your-Books-Phase-3-ahoss1#readme",
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
