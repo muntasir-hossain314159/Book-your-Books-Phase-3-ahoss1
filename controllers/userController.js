@@ -40,7 +40,7 @@ module.exports = {
             }).clone().then( () => {
                 courseBook.find({_id: {$in: currentUser.potentialCourseBooksList}}, {image: 0}, (err, courseBooks) => {
                     if(err) {
-                        console.log("Error in finding potential course books list");
+                        console.log("Error in finding rejected potential course books list");
                         return next(err);
                     }
                     else {
