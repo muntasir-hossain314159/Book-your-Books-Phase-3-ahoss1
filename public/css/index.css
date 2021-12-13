@@ -121,7 +121,7 @@ img
 }
 
 .add-to-bookbag {
-    background-image: url('../Images/add-bookbag-icon.png');
+    background-image: url('../images/add-bookbag-icon.png');
     background-repeat: no-repeat;
     background-size: contain;
     border: 0px solid black;

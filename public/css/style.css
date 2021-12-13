@@ -147,7 +147,7 @@ body {
 }
 
 .dropdown-icon .navbar-toggler-icon {
-    background-image: url('../Images/dropdown-icon.png');
+    background-image: url('../images/dropdown-icon.png');
     background-size: contain;
 }
 
@@ -215,7 +215,7 @@ body {
 .grid-container-footer-1 {
     position: relative;
     left: center;
-    background-image: url('../Images/facebook-icon.png');
+    background-image: url('../images/facebook-icon.png');
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -227,7 +227,7 @@ body {
 }
 
 .grid-container-footer-2 {
-    background-image: url('../Images/instagram-icon.png');
+    background-image: url('../images/instagram-icon.png');
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -239,7 +239,7 @@ body {
 }
 
 .grid-container-footer-3 {
-    background-image: url('../Images/twitter-icon.png');
+    background-image: url('../images/twitter-icon.png');
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -274,7 +274,7 @@ body {
 /* 
 .course-left {
     background-position: center;
-    background-image: url('../Images/left-arrow.png'); 
+    background-image: url('../images/left-arrow.png'); 
     background-size: 50%;
     background-color: #1b1b1b;
     background-repeat: no-repeat; 
@@ -285,7 +285,7 @@ body {
 
 .course-right {
     background-position: center;
-    background-image: url('../Images/right-arrow.png'); 
+    background-image: url('../images/right-arrow.png'); 
     background-size: 50%;
     background-color: #1b1b1b;
     background-repeat: no-repeat; 
