@@ -16,7 +16,7 @@ app.set("view engine", "ejs");
 app.set("port", process.env.PORT || 3000);
 //app.set('trust proxy', 1) 
 
-mongoose.connect(process.env.MONGO_DB_URI, (err)=>{
+mongoose.connect(process.env.MONGO_DB_URI || "mongodb+srv://webDBUser:Q4l4RYxnq58hWDNG@cluster0.scdu4.mongodb.net/bookYourBooks?retryWrites=true&w=majority", (err)=>{
   if(err) throw err;
   console.log("DB Connected Successfully");
   });
