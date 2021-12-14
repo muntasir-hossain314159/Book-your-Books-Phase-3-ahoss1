@@ -2,16 +2,16 @@
 
 "Book your Books" is a website that is being developed for students at the University of New Haven. Students will upload their used course books on the platform and current students who are enrolled in that particular course would be able to buy them. The website serves as a Client to Client communication platform where the buyer's information would be transferred to the seller, who would then communicate with the buyer directly. <br>
 
-In Phase - 3, I completed "My Purchases", "My Sellings", "Book Bag" and "Search" sections. I integrated JQuery for API requests. Moreover, I implemented case insenstive search operations using regex to allow more flexibility during searches. <br>
+In Phase - 3, I completed the following sections: "My Purchases", "My Sellings", "Book Bag" and "Search". I integrated JQuery for API requests. Moreover, I implemented case insenstive search operations using regex to allow more flexibility during searches. <br>
 
 Details of Purchasing a Book:
-1. Buyers submit bids for a course book
-2. The contact information of the Buyers would then be available under "Interested Buyers" in the Seller's dashboard (My Sellings -> Sellings -> Particular Course Book -> Show)
-3. The Seller would then contact the Buyers and decide on a particular Buyer by approving them
-4. The Seller may also decide to reject a buyer
+1. The Buyer submits a bid for a course book
+2. The contact information of the Buyer would be made available under "Interested Buyers" in the Seller's dashboard (My Sellings -> Sellings -> Particular Course Book -> Show)
+3. The Seller would then contact all the Buyers available for the particular book and decide upon a particular Buyer by approving them
+4. The Seller may decide to reject a buyer
 5. Once the Seller approves a Buyer, the book is moved to the "Sold" section in the Seller's dashboard 
-6. The book would also move from "Current Bids" to "Purchased" in the "My Purchases" section in the Buyer's dashboard
-7. If the Seller rejects the Buyer, the book would move from the "Current Bids" to the "Rejected Bids" Section 
+6. The book is then moved from the "Current Bids" section to the "Purchased" section under "My Purchases" in the Buyer's dashboard
+7. If the Seller rejects the Buyer, the book would move from the "Current Bids" to the "Rejected Bids" section 
 
 During development, I followed the Model-View-Container (MVC) software design pattern. 
 
