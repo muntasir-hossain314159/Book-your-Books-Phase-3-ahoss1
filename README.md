@@ -15,13 +15,13 @@ In Phase - 2, I completed the design of the Home, Search, Sign In, Sign Up, and 
 <img src = "./screenshots/Search Results with No Match.png">
 
 ## Add to Book Bag from Search
-<img scr = "./screenshots/Add to Book Bag from Search.PNG">
+<img scr = "./screenshots/Add_to_Book_Bag_from_Search.png">
 
 ## Sign Up Page
 <img src = "./screenshots/Sign Up.png">
 
 ## Successful Sign Up
-<img src = "./screenshots/Successful Sign Up and Login.PNG">
+<img src = "./screenshots/Successful Sign Up and Login.png">
 
 ## Sign In Page
 <img src = "./screenshots/Sign In.png">
@@ -30,19 +30,19 @@ In Phase - 2, I completed the design of the Home, Search, Sign In, Sign Up, and 
 <img src = "./screenshots/Successful Sign In.png">
 
 ## Book Bag
-<img scr ="./screenshots/Book Bag.PNG">
+<img scr ="./screenshots/Book Bag.png">
 
 ## Multiple Bids
 <img scr = "./screenshots/Multiple Bids.png">
 
 ## Successful Bid Submission
-<img scr = "./screenshots/Successful Bid Submission.PNG">
+<img scr = "./screenshots/Successful Bid Submission.png">
 
 ## Empty Book Bag
-<img scr = "./screenshots/Empty Book Bag.PNG">
+<img scr = "./screenshots/Empty Book Bag.png">
 
 ## Book Bag without Signing In
-<img src = "./screenshots/Book Bag without Sign In.PNG">
+<img src = "./screenshots/Book Bag without Sign In.png">
 
 ## My Sellings 
 <img src = "./screenshots/My Sellings.png">
@@ -51,25 +51,25 @@ In Phase - 2, I completed the design of the Home, Search, Sign In, Sign Up, and 
 <img scr = "./screenshots/Interested Buyers.png">
 
 ## Reject Buyer
-<img src = "./screenshots/Reject Buyer.PNG">
+<img src = "./screenshots/Reject Buyer.png">
 
 ## Approve Buyer
-<img src = "./screenshots/Sold Buyer.PNG">
+<img src = "./screenshots/Sold Buyer.png">
 
 ## My Sellings Section for Seller
-<img src = "./screenshots/Approve Buyer Sold.PNG">
+<img src = "./screenshots/Approve Buyer Sold.png">
 
 ## My Purchases
-<img src = "./screenshots/My Purchases.PNG">
+<img src = "./screenshots/My Purchases.png">
 
 ## My Purchases Section for Approved Buyer
-<img src = "./screenshots/Purchased Approve Buyer.PNG">
+<img src = "./screenshots/Purchased Approve Buyer.png">
 
 ## Rejected Bids
-<img scr = "./screenshots/Rejected Bids.PNG">
+<img scr = "./screenshots/Rejected Bids.png">
 
 ## Logout
-<img src = "./screenshots/Log Out.PNG">
+<img src = "./screenshots/Log Out.png">
 
 ## Developer Information
 
