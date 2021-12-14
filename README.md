@@ -15,7 +15,7 @@ In Phase - 2, I completed the design of the Home, Search, Sign In, Sign Up, and 
 <img src = "./screenshots/Search Results with No Match.png">
 
 ## Add to Book Bag from Search
-<img scr = "./screenshots/Add_to_Book_Bag_from_Search.png">
+<img src = "./screenshots/Add to Book Bag from Search.png">
 
 ## Sign Up Page
 <img src = "./screenshots/Sign Up.png">
