@@ -5,13 +5,13 @@
 In Phase - 3, I completed "My Purchases", "My Sellings", "Book Bag" and "Search" sections. I integrated JQuery for API requests. Moreover, I implemented case insenstive search operations using regex to allow more flexibility during searches. <br>
 
 Details of Purchasing a Book:
-1. The Buyer is able to submit a bid for their book
-2. The contact information of the Buyer would then be available under Interested Buyers in the Seller's dashboard (My Sellings -> Sellings -> Particular Course Book -> Show)
-3. The Seller would then contact the Buyer and then decide on a particular Buyer by approving them
-4. The Seller may decide to reject a buyer
-5. Once the Seller approves the Buyer, the book is moved the "Sold" section in the Seller's dashboard 
-6. The book would then move in the My Purchases section from Current Bids to Purchased
-7. Provided the Seller rejects the Buyer, the book would move to the Rejected Bids Section from Current Bids
+1. Buyers submit bids for a course book
+2. The contact information of the Buyers would then be available under "Interested Buyers" in the Seller's dashboard (My Sellings -> Sellings -> Particular Course Book -> Show)
+3. The Seller would then contact the Buyers and then decide on a particular Buyer by approving them
+4. The Seller may also decide to reject a buyer
+5. Once the Seller approves a Buyer, the book is moved to the "Sold" section in the Seller's dashboard 
+6. The book would also move from "Current Bids" to "Purchased" in the "My Purchases" section in the Buyer's dashboard
+7. If the Seller rejects the Buyer, the book would move from the "Current Bids" to the "Rejected Bids" Section 
 
 During development, I followed the Model-View-Container (MVC) software design pattern. 
 
