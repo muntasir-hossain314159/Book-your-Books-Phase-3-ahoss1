@@ -66,7 +66,7 @@ In Phase - 2, I completed the design of the Home, Search, Sign In, Sign Up, and 
 <img src = "./screenshots/Purchased Approve Buyer.PNG">
 
 ## Rejected Bids
-<img scr = "./screenshots/Rejected Bids.png">
+<img scr = "./screenshots/Rejected Bids.PNG">
 
 ## Logout
 <img src = "./screenshots/Log Out.PNG">
