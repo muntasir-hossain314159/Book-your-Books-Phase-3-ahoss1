@@ -30,16 +30,16 @@ In Phase - 2, I completed the design of the Home, Search, Sign In, Sign Up, and 
 <img src = "./screenshots/Successful Sign In.png">
 
 ## Book Bag
-<img scr ="./screenshots/Book Bag.png">
+<img src ="./screenshots/Book Bag.png">
 
 ## Multiple Bids
-<img scr = "./screenshots/Multiple Bids.png">
+<img src = "./screenshots/Multiple Bids.png">
 
 ## Successful Bid Submission
-<img scr = "./screenshots/Successful Bid Submission.png">
+<img src = "./screenshots/Successful Bid Submission.png">
 
 ## Empty Book Bag
-<img scr = "./screenshots/Empty Book Bag.png">
+<img src = "./screenshots/Empty Book Bag.png">
 
 ## Book Bag without Signing In
 <img src = "./screenshots/Book Bag without Sign In.png">
@@ -48,7 +48,7 @@ In Phase - 2, I completed the design of the Home, Search, Sign In, Sign Up, and 
 <img src = "./screenshots/My Sellings.png">
 
 ## Interested Buyers
-<img scr = "./screenshots/Interested Buyers.png">
+<img src = "./screenshots/Interested Buyers.png">
 
 ## Reject Buyer
 <img src = "./screenshots/Reject Buyer.png">
@@ -66,7 +66,7 @@ In Phase - 2, I completed the design of the Home, Search, Sign In, Sign Up, and 
 <img src = "./screenshots/Purchased Approve Buyer.png">
 
 ## Rejected Bids
-<img scr = "./screenshots/Rejected Bids.png">
+<img src = "./screenshots/Rejected Bids.png">
 
 ## Logout
 <img src = "./screenshots/Log Out.png">
