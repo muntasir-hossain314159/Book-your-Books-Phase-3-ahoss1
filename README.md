@@ -69,7 +69,7 @@ In Phase - 2, I completed the design of the Home, Search, Sign In, Sign Up, and 
 <img scr = "./screenshots/Rejected Bids.PNG">
 
 ## Logout
-<img src = "./screenshots/Log Out.png">
+<img src = "./screenshots/Log Out.PNG">
 
 ## Developer Information
 
