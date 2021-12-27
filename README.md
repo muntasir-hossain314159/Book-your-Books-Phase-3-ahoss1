@@ -2,7 +2,7 @@
 
 "Book your Books" is a website that is being developed for students at the University of New Haven. Students will upload their used course books on the platform and current students who are enrolled in that particular course would be able to buy them. The website serves as a Client to Client communication platform where the buyer's information would be transferred to the seller, who would then communicate with the buyer directly. <br>
 
-In Phase - 3, I completed the following sections: "My Purchases", "My Sellings", "Book Bag" and "Search". I integrated JQuery for API requests. Moreover, I implemented case insenstive search operations using regex to allow more flexibility during searches. <br>
+In Phase - 3, I completed the following sections: "My Purchases", "My Sellings", "Book Bag" and "Search". I integrated jQuery for API requests. Moreover, I implemented case insensitive search operations using regex to allow more flexibility during searches. <br>
 
 Details of Purchasing a Book:
 1. The Buyer submits a bid for a course book
